@@ -1,17 +1,19 @@
 {
-  "name": "now-ui-kit",
+  "name": "keeke-kit",
   "version": "1.1.0",
-  "description": "Now UI Kit Bootstrap 4 - Designed by Invision. Coded by Creative Tim",
+  "description": "Keeke Kit Bootstrap 4 - Designed by Invision. Coded by Creative Tim. Extended by Keeke",
   "main": "index.js",
   "directories": {
     "example": "root"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass assets/sass/now-ui-kit.scss assets/css/now-ui-kit.css --style expanded",
+    "dev": "sass --watch assets/sass:assets/css --style expanded"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/creativetimofficial/now-ui-kit.git"
+    "url": "git+https://github.com/skekec/keeke-kit"
   },
   "keywords": [
     "bootstrap4",
@@ -24,10 +26,10 @@
     "freebie",
     "sass-framework"
   ],
-  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
+  "author": "Keeke Dev <info@keeke.de> (http://keeke.de",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/creativetimofficial/now-ui-kit/issues"
+    "url": "https://github.com/skekec/keeke-kit"
   },
-  "homepage": "https://github.com/creativetimofficial/now-ui-kit#readme"
+  "homepage": "https://github.com/skekec/keeke-kit#readme"
 }
