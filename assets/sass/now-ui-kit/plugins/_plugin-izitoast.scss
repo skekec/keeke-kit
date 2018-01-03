@@ -1,0 +1,57 @@
+/**
+ * Plugin: IziToast
+ */
+
+.iziToast {
+  font-family: $sans-serif-family !important;
+  background: $white-bg !important;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.3) !important;
+
+  & > .iziToast-body {
+    .iziToast-buttons {
+      & > input {
+        font-size: $font-size-small !important;
+      }
+    }
+
+    .iziToast-icon, iziToast-title, iziToast-message {
+      font-size: $font-size-base !important;
+    }
+
+  }
+
+  &.iziToast-color-red .iziToast-progressbar > div {
+    background-color: $danger-color !important;
+  }
+
+  &.iziToast-color-yellow .iziToast-progressbar > div {
+    background-color: $warning-color !important;
+  }
+
+  &.iziToast-color-blue .iziToast-progressbar > div {
+    background-color: $info-color !important;
+  }
+
+  &.iziToast-color-orange .iziToast-progressbar > div {
+    background-color: $primary-color !important;
+  }
+
+  &.iziToast-color-green {
+    border-top: 1px solid $success-color !important;
+    //border-top: 1px solid #18ce0f;
+  }
+}
+
+.iziToast-wrapper-bottomRight {
+  right: 15px;
+}
+
+@media only screen and (min-width: 568px) {
+  .iziToast::after {
+    @include box-shadow(none);
+  }
+
+  .iziToast-target .iziToast::after {
+    @include box-shadow(none);
+  }
+}
