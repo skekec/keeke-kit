@@ -1304,6 +1304,58 @@
   margin-right: -5px;
 }
 
+/**
+ * Plugin: Custom Scrollbar
+ */
+.mCSB_inside > .mCSB_container {
+  margin-right: 0 !important;
+}
+
+/**
+ * Plugin: IziToast
+ */
+.iziToast {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif !important;
+  background: #FFFFFF !important;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.3) !important;
+}
+.iziToast > .iziToast-body .iziToast-buttons > input {
+  font-size: 0.8571em !important;
+}
+.iziToast > .iziToast-body .iziToast-icon, .iziToast > .iziToast-body iziToast-title, .iziToast > .iziToast-body iziToast-message {
+  font-size: 14px !important;
+}
+.iziToast.iziToast-color-red .iziToast-progressbar > div {
+  background-color: #FF3636 !important;
+}
+.iziToast.iziToast-color-yellow .iziToast-progressbar > div {
+  background-color: #FFB236 !important;
+}
+.iziToast.iziToast-color-blue .iziToast-progressbar > div {
+  background-color: #2CA8FF !important;
+}
+.iziToast.iziToast-color-orange .iziToast-progressbar > div {
+  background-color: #f96332 !important;
+}
+.iziToast.iziToast-color-green {
+  border-top: 1px solid #18ce0f !important;
+}
+
+.iziToast-wrapper-bottomRight {
+  right: 15px;
+}
+
+@media only screen and (min-width: 568px) {
+  .iziToast::after {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .iziToast-target .iziToast::after {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
 .btn, .navbar .navbar-nav > a.btn {
   border-width: 2px;
   font-weight: 400;
@@ -2750,6 +2802,23 @@ body {
   background-color: #f96332;
 }
 
+.section-header {
+  margin-bottom: 8px;
+}
+
+.search-form .input-group > .input-group-addon > i {
+  transition: opacity 1s;
+  opacity: 0.3;
+}
+
+.search-form .input-group.input-group-focus > .input-group-addon > i {
+  opacity: 1;
+}
+
+.search-form input, .search-form .input-group-addon {
+  border-color: #f96332;
+}
+
 .nav-pills .nav-item .nav-link {
   padding: 0 15.5px;
   text-align: center;
@@ -2913,42 +2982,42 @@ body #content {
   transition: all 1s !important;
   background: #EEEEEE;
 }
-body.sidebar-mini #sidebar {
+body.aside-mini #sidebar {
   width: 80px;
   min-width: 80px;
   max-width: 80px;
   text-align: center;
   /** Hide buttons and username in mini mode */
 }
-body.sidebar-mini #sidebar .sidebar-header {
+body.aside-mini #sidebar .sidebar-header {
   /** User avatar dimensions in mini mode */
 }
-body.sidebar-mini #sidebar .sidebar-header h3, body.sidebar-mini #sidebar .sidebar-header p, body.sidebar-mini #sidebar .sidebar-header button {
+body.aside-mini #sidebar .sidebar-header h3, body.aside-mini #sidebar .sidebar-header p, body.aside-mini #sidebar .sidebar-header button {
   display: none;
 }
-body.sidebar-mini #sidebar .sidebar-header img {
+body.aside-mini #sidebar .sidebar-header img {
   width: 40px;
   height: 40px;
 }
-body.sidebar-mini #sidebar .sidebar-header strong {
+body.aside-mini #sidebar .sidebar-header strong {
   display: block;
   margin-top: 5px;
 }
-body.sidebar-mini #sidebar ul li a {
+body.aside-mini #sidebar ul li a {
   padding: 20px 10px !important;
   text-align: center;
   font: 0/0 a !important;
   justify-content: center;
 }
-body.sidebar-mini #sidebar ul li a i {
+body.aside-mini #sidebar ul li a i {
   font: normal normal normal 20px/1 FontAwesome !important;
   display: block;
   margin: 0 !important;
 }
-body.sidebar-mini #sidebar ul li.active > a {
+body.aside-mini #sidebar ul li.active > a {
   padding-left: 8px !important;
 }
-body.sidebar-mini #sidebar a[aria-expanded="false"] i::after, body.sidebar-mini #sidebar a[aria-expanded="true"] i::after {
+body.aside-mini #sidebar a[aria-expanded="false"] i::after, body.aside-mini #sidebar a[aria-expanded="true"] i::after {
   content: '\ea39';
   display: block;
   position: absolute;
@@ -2956,7 +3025,7 @@ body.sidebar-mini #sidebar a[aria-expanded="false"] i::after, body.sidebar-mini 
   font-family: 'Nucleo Outline';
   font-size: 0.6em;
 }
-body.sidebar-mini #content {
+body.aside-mini #content {
   width: calc(100% - 80px);
 }
 
@@ -3026,6 +3095,87 @@ body.sidebar-mini #content {
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
 }
 
+.form-text {
+  align-items: center;
+  display: flex;
+  margin: .35rem;
+  font-size: 70%;
+  font-weight: 400;
+  text-align: justify;
+  padding: 0 1rem;
+}
+.form-text::before {
+  content: '\f142';
+  font-family: 'Ionicons';
+  font-size: medium;
+  margin-right: .5rem;
+}
+.form-text.help {
+  color: #868e96;
+}
+.form-text.help::before {
+  content: '\f142';
+  color: #868e96 !important;
+}
+.form-text.error {
+  color: #FF3636;
+}
+.form-text.error::before {
+  content: '\f128';
+  color: #FF3636 !important;
+}
+.form-group + .form-text:first-of-type {
+  margin-top: -.40rem !important;
+}
+div[class*="col"] > .form-text:last-of-type {
+  margin-bottom: .4rem !important;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: .2rem;
+  padding-left: 1rem;
+  font-size: .8rem;
+}
+
+.form-group.has-error, .form-group.has-danger {
+  margin-bottom: 10px;
+}
+
+.form-group.row.has-success:after, .form-group.row.has-danger:after {
+  right: 30px;
+  top: 11px;
+}
+
+.has-success:after, .has-danger:after {
+  z-index: 5;
+}
+
+.form-group.has-success div.input-group.input-group-focus > span.input-group-addon {
+  border-color: #86f680;
+  color: #18ce0f;
+}
+
+.form-group.has-danger div.input-group > span.input-group-addon {
+  border-color: #ffcfcf;
+  color: #FF3636;
+}
+
+.form-group.has-danger div.input-group span.input-group-addon:last-child > i,
+.form-group.has-success div.input-group span.input-group-addon:last-child > i {
+  display: none;
+}
+
+.input-group {
+  margin-bottom: 0;
+}
+
+@media (max-width: 576px) {
+  .form-group.row.has-success:after, .form-group.row.has-danger:after {
+    right: 30px;
+    top: 42px;
+  }
+}
 .btn-twitter {
   color: #55acee;
 }
@@ -4367,6 +4517,11 @@ Created using IcoMoon - icomoon.io
   width: 100%;
   margin-bottom: 20px;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+  /**
+   * Info Card CSS
+   *
+   * @author Selcuk Kekec <skekec@keeke.de>
+   */
 }
 .card .card-body {
   min-height: 190px;
@@ -4385,6 +4540,86 @@ Created using IcoMoon - icomoon.io
 }
 .card[data-background-color="green"] {
   background-color: #18ce0f;
+}
+.card.card-info {
+  border: 0;
+  border-radius: 0.1875rem;
+  position: relative;
+  overflow: auto;
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+  justify-content: center !important;
+  flex-direction: row !important;
+  display: flex !important;
+  min-width: 0;
+  min-height: 100%;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.card.card-info:hover {
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.5);
+}
+.card.card-info > .card-icon {
+  font-size: 45px;
+  font-weight: 800;
+  color: #343a40;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  display: -ms-flexbox;
+  display: flex;
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+.card.card-info > .card-body {
+  min-height: auto;
+  padding: 10px;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  display: flex;
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+  position: relative;
+  width: 100%;
+}
+.card.card-info > .card-body > h6 {
+  color: #868e96;
+}
+.card.card-info > .card-body > div {
+  margin: auto;
+  color: #868e96;
+  width: 100%;
+  text-align: center;
+}
+.card.card-info > .card-body > div > table {
+  width: 100%;
+  font-size: 0.8em;
+}
+.card.card-info > .card-body > div .labeled-icon > p:last-child {
+  display: block;
+  margin-top: -15px !important;
+}
+.card.card-info > .card-body > div .labeled-icon > p {
+  margin: 0;
+}
+.card.card-info > .card-body > div .labeled-icon p:first-child {
+  margin-bottom: -15px;
+}
+.card.card-info > .card-body > div > table tr td:first-child {
+  font-weight: 800;
+  text-align: right;
+}
+.card.card-info > .card-body > ul.nav-tabs {
+  padding: 0;
+}
+.card.card-info > .card-body > ul.nav-tabs > .nav-item > .nav-link {
+  padding: 5px;
+  margin: 3px;
 }
 
 .card-signup {
