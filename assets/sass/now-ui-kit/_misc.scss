@@ -63,3 +63,20 @@ body{
         background-color: $primary-color;
     }
 }
+
+.section-header {
+    margin-bottom: 8px;
+}
+
+.search-form .input-group > .input-group-addon > i {
+    transition: opacity 1s;
+    opacity: 0.3;
+}
+
+.search-form .input-group.input-group-focus > .input-group-addon > i {
+    opacity: 1
+}
+
+.search-form input, .search-form .input-group-addon {
+    border-color: $primary-color;
+}

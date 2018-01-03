@@ -1,0 +1,88 @@
+.form-text {
+    align-items: center;
+    display: flex;
+    margin: .35rem;
+    font-size: 70%;
+    font-weight: 400;
+    text-align: justify;
+    padding: 0 1rem;
+
+    &::before {
+        content: '\f142';
+        font-family: 'Ionicons';
+        font-size: medium;
+        margin-right: .5rem;
+    }
+
+    &.help {
+        color: $muted-gray;
+    }
+
+    &.help::before {
+        content: '\f142';
+        color: $muted-gray !important;
+    }
+
+    &.error {
+        color: $danger-color;
+    }
+
+    &.error::before {
+        content: '\f128';
+        color: $danger-color !important;
+    }
+
+    .form-group + &:first-of-type {
+        margin-top: -.40rem !important;
+    }
+
+    div[class*="col"] > &:last-of-type {
+        margin-bottom: .4rem !important;
+    }
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .2rem;
+    padding-left: 1rem;
+    font-size: .8rem;
+}
+
+.form-group.has-error, .form-group.has-danger {
+    margin-bottom: 10px;
+}
+
+.form-group.row.has-success:after, .form-group.row.has-danger:after {
+    right: 30px;
+    top: 11px;
+}
+
+.has-success:after, .has-danger:after {
+    z-index: 5;
+}
+
+.form-group.has-success div.input-group.input-group-focus > span.input-group-addon {
+    border-color: lighten($success-color, 30%);
+    color: $success-color;
+}
+
+.form-group.has-danger div.input-group > span.input-group-addon {
+    border-color: lighten($danger-color, 30%);
+    color: $danger-color;
+}
+
+.form-group.has-danger div.input-group span.input-group-addon:last-child > i,
+.form-group.has-success div.input-group span.input-group-addon:last-child > i{
+    display: none;
+}
+
+.input-group {
+    margin-bottom: 0;
+}
+
+@media (max-width: map-get($grid-breakpoints, sm)) {
+    .form-group.row.has-success:after, .form-group.row.has-danger:after {
+        right: 30px;
+        top: 42px;
+    }
+}
