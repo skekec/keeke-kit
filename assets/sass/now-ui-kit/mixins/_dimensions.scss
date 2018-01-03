@@ -1,0 +1,7 @@
+// Visibility
+
+@mixin width($width, $min: false, $max: false) {
+  width: $width;
+  @if ($min) {min-width: $width};
+  @if ($max) {max-width: $width};
+}

@@ -1,0 +1,256 @@
+/**
+ * Sidebar related styles
+ *
+ * @author Selcuk Kekec <skekec@keeke.de>
+ * @version 0.1
+ */
+
+@mixin link-shadow {
+  -webkit-box-shadow: 0px 0px 20px 3px rgba(50,50,50,0.3);
+  -moz-box-shadow: 0px 0px 20px 3px rgba(50,50,50,0.3);
+  box-shadow: 0px 0px 20px 3px rgba(50,50,50,0.3);
+}
+
+body {
+  /**
+   * Default Sidebar styles
+   */
+  #sidebar {
+    @include width($sidebar-width, true, true);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: $sidebar-bg-color !important;
+    color: $sidebar-color;
+
+    .sidebar-header {
+      padding: 20px;
+      border-bottom: 2px solid $sidebar-header-border-bottom-color;
+
+      strong {
+        display: none;
+      }
+    }
+
+    ul.components {
+      padding: 20px 0;
+      background: $sidebar-link-list-bg-color;
+      color: $sidebar-link-list-color;
+      font-size: $sidebar-link-list-font-size;
+
+      li a {
+        color: inherit;
+        text-decoration: none;
+        display: flex;
+        padding: 20px;
+        align-items: center;
+        transition: all 0.3s;
+      }
+
+      li a i {
+        margin-right: 10px;
+      }
+
+      ul a {
+        font-size: $sidebar-sub-link-list-font-size !important;
+        padding-left: 35px !important;
+      }
+
+      ul li.active > a {
+        padding-left: 33px !important;
+      }
+
+      li a:hover {
+        background: $sidebar-link-hover-bg-color;
+        color: $sidebar-link-hover-color;
+        @include link-shadow();
+      }
+
+      li.active > a {
+        background: $sidebar-link-active-bg-color;
+        color: $sidebar-link-active-color;
+        border-left: 2px solid $sidebar-link-active-border-color;
+        padding-left: 18px !important;
+        @include link-shadow();
+      }
+    }
+
+    .sidebar-footer {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      @include box-shadow(1px 3px 15px 0px rgba(179, 173, 166, 1));
+    }
+
+    ul.collapse {
+      @include box-shadow(0px 10px 35px -10px rgba(0,0,0,0.7));
+    }
+
+    a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+      content: '\ea3b';
+      display: block;
+      position: absolute;
+      right: 20px;
+      font-family: 'Nucleo Outline';
+      font-size: 0.6em;
+    }
+
+    a[aria-expanded="true"]::before {
+      content: '\ea39';
+    }
+  }
+
+  #content {
+    width: calc(100% - #{$sidebar-width});
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow-y: auto;
+    transition: all 1s !important;
+    background: #EEEEEE;
+  }
+
+  &.sidebar-mini {
+    #sidebar {
+      @include width($sidebar-mini-width, true, true);
+      text-align: center;
+
+      /** Hide buttons and username in mini mode */
+      .sidebar-header {
+        h3, p, button {
+          display: none;
+        }
+
+        /** User avatar dimensions in mini mode */
+        img {
+          width: $sidebar-mini-width / 2;
+          height: $sidebar-mini-width / 2;
+        }
+
+        strong {
+          display: block;
+          margin-top: 5px;
+        }
+      }
+
+      ul {
+        li {
+          a {
+            padding: 20px 10px !important;
+            text-align: center;
+            font: 0/0 a !important;
+            justify-content: center;
+
+            i {
+              font: normal normal normal 20px/1 FontAwesome !important;
+              display: block;
+              margin: 0 !important;
+            }
+          }
+
+          &.active > a {
+            padding-left: 8px !important;
+          }
+        }
+      }
+
+      a[aria-expanded="false"] i::after, a[aria-expanded="true"] i::after {
+        content: '\ea39';
+        display: block;
+        position: absolute;
+        right: 34px;
+        font-family: 'Nucleo Outline';
+        font-size: 0.6em;
+      }
+    }
+
+    #content {
+      width: calc(100% - #{$sidebar-mini-width});
+    }
+  }
+}
+
+/* ---------------------------------------------------
+  MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: map-get($grid-breakpoints, lg)) {
+  body {
+    #content {
+      width: 100% !important;
+    }
+
+    #sidebar {
+      @include width($sidebar-mini-width, true, true);
+      margin-left: -#{$sidebar-mini-width} !important;
+      text-align: center;
+
+      /** Hide buttons and username in mini mode */
+      .sidebar-header {
+        h3, p, button {
+          display: none;
+        }
+
+        /** User avatar dimensions in mini mode */
+        img {
+          width: $sidebar-mini-width / 2;
+          height: $sidebar-mini-width / 2;
+        }
+
+        strong {
+          display: block;
+          margin-top: 5px;
+        }
+      }
+
+      ul {
+        li {
+          a {
+            padding: 20px 10px !important;
+            text-align: center;
+            font: 0/0 a !important;
+            justify-content: center;
+
+            i {
+              font: normal normal normal 20px/1 FontAwesome !important;
+              display: block;
+              margin: 0 !important;
+            }
+          }
+
+          &.active > a {
+            padding-left: 8px !important;
+          }
+        }
+      }
+
+      a[aria-expanded="false"] i::after, a[aria-expanded="true"] i::after {
+        content: '\ea39';
+        display: block;
+        position: absolute;
+        right: 34px;
+        font-family: 'Nucleo Outline';
+        font-size: 0.6em;
+      }
+    }
+
+    &.aside-mini {
+      #sidebar {
+        margin-left: 0 !important;
+      }
+
+      #content {
+        width: calc(100% - #{$sidebar-mini-width}); !important;
+      }
+    }
+  }
+
+  #sidebarCollapse span {
+    display: none;
+  }
+}
+
+.shadow {
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+}

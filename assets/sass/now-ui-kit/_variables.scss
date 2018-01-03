@@ -264,3 +264,22 @@ $grid-breakpoints: (
         lg: 992px,
         xl: 1200px
 ) !default;
+
+/**
+ * Sidebar
+ */
+$sidebar-width: 250px;
+$sidebar-bg-color: #e2dfdf;
+$sidebar-color: $white-color;
+$sidebar-header-border-bottom-color: $primary-color;
+$sidebar-link-list-bg-color: #e2dfdf;
+$sidebar-link-list-color: grey;
+$sidebar-link-list-font-size: $font-size-small;
+$sidebar-sub-link-list-font-size: 0.9em; // @TODO
+$sidebar-link-hover-bg-color: #fff6f6;
+$sidebar-link-hover-color: $primary-color;
+$sidebar-link-active-bg-color: #fff6f6;
+$sidebar-link-active-color: $primary-color;
+$sidebar-link-active-border-color: $primary-color;
+$sidebar-mini-width: 80px;
+$sidebar-mini-icon-font-size: $font-size-small;
