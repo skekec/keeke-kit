@@ -241,7 +241,7 @@ body {
       }
 
       #content {
-        width: calc(100% - #{$sidebar-mini-width}); !important;
+        width: calc(100% - #{$sidebar-mini-width}) !important;
       }
     }
   }
