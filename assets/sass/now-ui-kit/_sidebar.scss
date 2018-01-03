@@ -112,7 +112,7 @@ body {
     background: #EEEEEE;
   }
 
-  &.sidebar-mini {
+  &.aside-mini {
     #sidebar {
       @include width($sidebar-mini-width, true, true);
       text-align: center;
